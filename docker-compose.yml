@@ -1,0 +1,19 @@
+version: "3.8"
+services:
+  backend:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    image: backend
+    container_name: backend
+    ports:
+      - "8000:80"
+
+  frontend:
+    build:
+      context: ./front-end-nextjs
+      dockerfile: Dockerfile
+    image: frontend
+    container_name: frontend
+    ports:
+      - "3000:3000"
