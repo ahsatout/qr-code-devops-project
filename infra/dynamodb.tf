@@ -1,15 +1,15 @@
 resource "aws_dynamodb_table" "tf_state_lock" {
-    name         = "state-lock"
-    write_capacity = 1
-    read_capacity = 1
-    hash_key     = "LockID"
-    attribute {
-      name = "LockID"
-      type = "S"
-    }
+  name           = "state-lock"
+  write_capacity = 1
+  read_capacity  = 1
+  hash_key       = "LockID"
+  attribute {
+    name = "LockID"
+    type = "S"
+  }
 
-    tags = {
-      Name        = "Terraform State Lock"
-      Environment = "Dev"
-    }
+  tags = {
+    Name        = "Terraform State Lock"
+    Environment = "Dev"
+  }
 }

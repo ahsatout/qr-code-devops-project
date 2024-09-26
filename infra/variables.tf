@@ -1,13 +1,13 @@
 variable "bucket_names" {
-  type    = map(string)
+  type = map(string)
   default = {
-    "QR" = "qr-code-asatout"
+    "QR"      = "qr-code-asatout"
     "BACKEND" = "state-lock-asatout"
   }
 }
 
 variable "bucket_tags" {
-  type    = map(map(string))
+  type = map(map(string))
   default = {
     "QR" = {
       Name        = "QRs BUCKET"
@@ -21,6 +21,6 @@ variable "bucket_tags" {
 }
 
 variable "table" {
-    type = string
-    default = "state-lock"
+  type    = string
+  default = "state-lock"
 }
