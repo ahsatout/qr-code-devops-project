@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: qr-api
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: qr-api
+  template:
+    metadata:
+      labels:
+        app: qr-api
+    spec:
+      containers:
+        - name: qr-api
+          image: ahsatout/api:latest
+          ports:
+            - containerPort: 80
+          env:
+            - name: AWS_ACCESS_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: aws-secret
+                  key: aws_access_key_id
+            - name: AWS_SECRET_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: aws-secret
+                  key: aws_secret_access_key
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: qr-api-service
+spec:
+  type: ClusterIP
+  selector:
+    app: qr-api
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
