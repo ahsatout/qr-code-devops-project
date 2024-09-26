@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: ahsatout/frontend:latest
+          image: ahsatout/frontend:1
           ports:
             - containerPort: 3000
 
