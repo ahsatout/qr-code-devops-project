@@ -35,8 +35,8 @@ jobs:
 
       - name: Commit and push updated Front-end manifest
         run: |
-          git config --global user.name "Abdelhakim Satout"
-          git config --global user.email "hakim.satout@gmail.com"
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
           git add ./k8s/frontend-deployment.yaml
           git commit -m "Update Frontend image tag to ${{ github.run_number }}"
           git push origin main

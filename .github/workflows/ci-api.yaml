@@ -35,8 +35,8 @@ jobs:
 
       - name: Commit and push updated API manifest
         run: |
-          git config --global user.name "Abdelhakim Satout"
-          git config --global user.email "hakim.satout@gmail.com"
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
           git add ./k8s/api-deployment.yaml
           git commit -m "Update API image tag to ${{ github.run_number }}"
           git push origin main
