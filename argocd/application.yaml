@@ -2,6 +2,8 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: qr-app
+  namespace: argocd
+
 spec:
   project: default
   source:
@@ -10,7 +12,10 @@ spec:
     path: k8s
   destination:
     server: https://kubernetes.default.svc
+    namespace: qr-code-app
   syncPolicy:
     automated:
       prune: true
       selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
