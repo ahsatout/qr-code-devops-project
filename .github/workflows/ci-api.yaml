@@ -28,8 +28,8 @@ jobs:
 
       - name: Build and push API image
         run: |
-          IMAGE_TAG=$(git describe --tags --abbrev=0 || echo "v1.0.0")
-          echo "IMAGE_TAG=$IMAGE_TAG-${{ github.run_number }}" >> $GITHUB_ENV
+          IMAGE_TAG=$(git describe --tags --abbrev=0 || echo "v1.0")
+          echo "IMAGE_TAG=$IMAGE_TAG.${{ github.run_number }}" >> $GITHUB_ENV
           docker build -t ${{ secrets.DOCKER_HUB_USERNAME }}/api:${IMAGE_TAG} ./api
           docker push ${{ secrets.DOCKER_HUB_USERNAME }}/api:${IMAGE_TAG}
 
