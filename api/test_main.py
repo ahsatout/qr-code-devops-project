@@ -14,4 +14,4 @@ def test_generate_qr_invalid_url():
     url = "invalid-url"
     response = client.post("/generate-qr/", json={"url": url})
 
-    assert response.status_code == 422  # FastAPI validation error
+    assert response.status_code == 422  
